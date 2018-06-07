@@ -20,5 +20,23 @@ def atbash(ciphertext):
             decifrado += chr(ord('A') + ord('Z') - ord(caracter))
     return decifrado
 
+def A1Z26(ciphertext):
+    decifrado = ""
+    i = 0
+    while i < len(ciphertext):
+        if ciphertext[i] == "-":
+            decifrado += ""
+        elif ord(ciphertext[i])<ord('0') or ord(ciphertext[i])>ord('9'):
+            decifrado += ciphertext[i]
+        else:
+            if ord('0') <= ord(ciphertext[i+1]) <= ord('9'):
+                decifrado += chr(int(ciphertext[i:i+2])+ord('A')-1)
+                i += 1
+            else:
+                decifrado += chr(int(ciphertext[i])+ord('A')-1)
+        i += 1
+    return decifrado
 #print("deciframiento: ", caesar(input("Texto a decifrar con Caesar: ")))
 #print("deciframiento: ", atbash(input("Texto a decifrar con atbash: ")))
+print("deciframiento: ", A1Z26(input("Texto a decifrar con A1Z26: ")))
+lol = "9-20 23-15-18-11-19 6-15-18 16-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-7-19!"
