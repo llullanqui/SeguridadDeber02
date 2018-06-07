@@ -36,7 +36,13 @@ def A1Z26(ciphertext):
                 decifrado += chr(int(ciphertext[i])+ord('A')-1)
         i += 1
     return decifrado
+
+def combined(ciphertext):
+    return caesar(atbash(A1Z26(ciphertext)))
+
+
+
 #print("deciframiento: ", caesar(input("Texto a decifrar con Caesar: ")))
 #print("deciframiento: ", atbash(input("Texto a decifrar con atbash: ")))
-print("deciframiento: ", A1Z26(input("Texto a decifrar con A1Z26: ")))
-lol = "9-20 23-15-18-11-19 6-15-18 16-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-7-19!"
+#print("deciframiento: ", A1Z26(input("Texto a decifrar con A1Z26: ")))
+#print("combined: ", combined(input("Texto a decifrar con combined cipher: ")))
