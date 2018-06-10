@@ -123,13 +123,17 @@ def vigenere(ciphertext,key):
            ["Y", "Z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X"],
            ["Z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y"]]
     n = len(key)
-    i = 0
-    while len(key) < len(ciphertext):
-        key = key + key[int(i % n)]
-        i += 1
     decifrado = ""
+    positionKey = 0
+    if len(key) < len(ciphertext):
+        for i in range(len(ciphertext)):
+            key += key[int(i % n)]
     for i in range(len(ciphertext)):
-        decifrado+=alpha[tabla[alpha.index(key[i])].index(ciphertext[i])]
+        if (ciphertext[i]) not in alpha:
+            decifrado += ciphertext[i]
+        else:
+            decifrado += alpha[tabla[alpha.index(key[positionKey])].index(ciphertext[i])]
+            positionKey += 1
     return decifrado
 
 
