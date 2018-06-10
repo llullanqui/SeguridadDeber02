@@ -136,10 +136,32 @@ def vigenere(ciphertext,key):
             positionKey += 1
     return decifrado
 
-
-#print("deciframiento: ", caesar(input("Texto a decifrar con Caesar: ")))
-#print("deciframiento: ", atbash(input("Texto a decifrar con atbash: ")))
-#print("deciframiento: ", A1Z26(input("Texto a decifrar con A1Z26: ")))
-#print("combined: ", combined(input("Texto a decifrar con combined cipher: ")))
-#print("number code:",numberCode(input("Texto a decifrar con number code: ")))
-#print("deciframiento: ", vigenere("SRBZTXYZJSKZBLQCEN","GRAVITY"))
+menu = """1) Decifrar mensaje con Caesar
+2) Decifrar mensaje con atbash
+3) Decifrar mensaje con A1Z26
+4) Decifrar mensaje con Combined cipher
+5) Decifrar mensaje con Number Codes
+6) Decifrar mensaje con Vigenere
+7) Salir"""
+opcion = ""
+while opcion != "7":
+    print(menu)
+    opcion = input("\nEscoja una opcion: ")
+    print("\n")
+    if opcion == "1":
+        print("deciframiento: ", caesar(input("Texto a decifrar con Caesar: ")))
+    elif opcion == "2":
+        print("deciframiento: ", atbash(input("Texto a decifrar con atbash: ")))
+    elif opcion == "3":
+        print("deciframiento: ", A1Z26(input("Texto a decifrar con A1Z26: ")))
+    elif opcion == "4":
+        print("deciframiento: ", combined(input("Texto a decifrar con Combined cipher: ")))
+    elif opcion == "5":
+        print("deciframiento:",numberCode(input("Texto a decifrar con Number code: ")))
+    elif opcion == "6":
+        print("deciframiento: ", vigenere(input("Texto a decifrar con Vigenere: "),input("Llave del cifrado: ")))
+    elif opcion == "7":
+        print("Adios")
+    else:
+        print("Opcion incorrecta")
+    print("\n")
