@@ -136,13 +136,22 @@ def vigenere(ciphertext,key):
             positionKey += 1
     return decifrado
 
+def binary(ciphertext):
+    ciphertext=(ciphertext.strip().replace(" ","")).replace("\n","")
+    decifrado=""
+    for i in range (len(ciphertext)//8):
+        porcion=ciphertext[i*8:(i+1)*8]
+        decifrado+=chr(int(str(porcion),2))
+    return decifrado;
+
 menu = """1) Decifrar mensaje con Caesar
 2) Decifrar mensaje con atbash
 3) Decifrar mensaje con A1Z26
 4) Decifrar mensaje con Combined cipher
 5) Decifrar mensaje con Number Codes
 6) Decifrar mensaje con Vigenere
-7) Salir"""
+7) Decifrar mensaje binario
+8) Salir"""
 opcion = ""
 while opcion != "7":
     print(menu)
@@ -161,6 +170,8 @@ while opcion != "7":
     elif opcion == "6":
         print("deciframiento: ", vigenere(input("Texto a decifrar con Vigenere: "),input("Llave del cifrado: ")))
     elif opcion == "7":
+        print("deciframiento:",binary(input("Numero binario a decifrar: ")))
+    elif opcion == "8":
         print("Adios")
     else:
         print("Opcion incorrecta")
